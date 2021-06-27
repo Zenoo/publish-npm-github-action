@@ -15,7 +15,7 @@ const { exec } = require('child_process');
     };
     
 
-    exec(`ls -a`, (err, stdout, stderr) => {
+    exec(`cd .. && ls -a`, (err, stdout, stderr) => {
       if (err) {
         // node couldn't execute the command
         throw err;
