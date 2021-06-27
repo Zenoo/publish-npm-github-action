@@ -12,16 +12,13 @@ const pkg = require('../package.json');
      * Parameters
      */
     const parameters = {
-      publishToNpm: core.getInput('publish-to-npm') === 'true',
-      publishToGithub: core.getInput('publish-to-github') === 'true',
-      githubScope: core.getInput('github-scope') || github.context.payload.repository.owner.login.toLowerCase(),
-      githubPackageName: core.getInput('github-package-name') || github.context.payload.repository.name.toLowerCase()
+      publishToNpm: process.env.INPUT_PUBLISH_TO_NPM === 'true',
+      publishToGithub: process.env.INPUT_PUBLISH_TO_GITHUB === 'true',
+      githubScope: process.env.INPUT_GITHUB_SCOPE || github.context.payload.repository.owner.login.toLowerCase(),
+      githubPackageName: process.env.INPUT_GITHUB_PACKAGE_NAME || github.context.payload.repository.name.toLowerCase()
     };
 
-    console.log(core.getInput('publish-to-npm'));
-    console.log(core.getInput('publish-to-github'));
     console.log(parameters);
-    console.log(process.env);
 
     /**
      * Publish to NPM

@@ -21,3 +21,8 @@ runs:
   steps:
     - run: node ${{ github.action_path }}/dist/index.js
       shell: bash
+      env:
+        INPUT_PUBLISH_TO_NPM: ${{ inputs.publish-to-npm }}
+        INPUT_PUBLISH_TO_GITHUB: ${{ inputs.publish-to-github }}
+        INPUT_GITHUB_SCOPE: ${{ inputs.github-scope }}
+        INPUT_GITHUB_PACKAGE_NAME: ${{ inputs.github-package-name }}
