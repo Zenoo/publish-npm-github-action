@@ -1,0 +1,18 @@
+name: Publish to NPM & Github
+
+on:
+  push:
+    tags: 
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/publish-npm-github-action@latest
+        with:
+          publish-to-npm: false
+          github-scope: 'customscope'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

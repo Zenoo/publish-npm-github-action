@@ -1,0 +1,33 @@
+{
+  "name": "publish-npm-github-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "package-index": "ncc build index.js",
+    "package-npm": "ncc build npm.js",
+    "package-github": "ncc build github.js",
+    "commit-package": "git add dist/* && git commit -m \"chore: Packaging\"",
+    "release": "npm run package-index && npm run package-npm && npm run package-github && npm run commit-package && standard-version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zenoo/publish-npm-github-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zenoo/publish-npm-github-action/issues"
+  },
+  "homepage": "https://github.com/Zenoo/publish-npm-github-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.28.6",
+    "standard-version": "^9.3.0"
+  }
+}

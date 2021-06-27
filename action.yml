@@ -1,0 +1,21 @@
+name: 'NPM & Github publish'
+author: Zenoo
+description: 'Publish your package on NPM, Github or both, without much configuration.'
+inputs:
+  publish-to-npm:
+    description: 'Should this action publish to npm?'
+    required: false
+    default: true
+  publish-to-github:
+    description: 'Should this action publish to Github?'
+    required: false
+    default: true
+  github-scope:
+    description: 'Custom scope for the Github publication. Defaults to your username'
+    required: false
+  github-package-name:
+    description: 'Custom package name for the Github publication. Defaults to your repository name'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
