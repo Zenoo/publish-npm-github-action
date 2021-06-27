@@ -17,5 +17,7 @@ inputs:
     description: 'Custom package name for the Github publication. Defaults to your repository name'
     required: false
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "composite"
+  steps:
+    - run: node ${{ github.action_path }}/index.js
+      shell: bash

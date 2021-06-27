@@ -34,7 +34,7 @@ const pkg = require('../package.json');
         JSON.stringify(pkg, null, 2),
       );
 
-      const { stdout, stderr } = await exec('npm ci && npm publish');
+      const { stdout, stderr } = await exec('npm ci && npm publish --access public');
       console.log('stdout:', stdout);
       console.log('stderr:', stderr);
       if(!stderr) console.log('Published to npm.');
@@ -65,7 +65,7 @@ const pkg = require('../package.json');
         JSON.stringify(pkg, null, 2),
       );
 
-      const { stdout, stderr } = await exec('npm publish');
+      const { stdout, stderr } = await exec('npm publish --access public');
       console.log('stdout:', stdout);
       console.log('stderr:', stderr);
       if(!stderr) console.log('Published to Github.');
