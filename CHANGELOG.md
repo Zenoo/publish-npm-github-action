@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.18](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.17...v1.1.18) (2021-06-27)
+
+
+### Bug Fixes
+
+* Use env vars instead of action core methods ([be29000](https://github.com/Zenoo/publish-npm-github-action/commit/be290007d6b6d37a33f0548032334c3377553268))
+
 ### [1.1.17](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.16...v1.1.17) (2021-06-27)
 
 ### [1.1.16](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.15...v1.1.16) (2021-06-27)
