@@ -6312,10 +6312,12 @@ const pkg = __nccwpck_require__(594);
       githubPackageName: core.getInput('github-package-name') || github.context.payload.repository.name.toLowerCase()
     };
 
+    console.log(parameters);
+
     /**
      * Publish to NPM
      */
-    const publishToNpm = async () => {
+    if (parameters.publishToNpm) {
       console.log('Publishing to npm ...');
 
       // Update registry for npm
@@ -6332,17 +6334,12 @@ const pkg = __nccwpck_require__(594);
       console.log('stdout:', stdout);
       console.log('stderr:', stderr);
       if(!stderr) console.log('Published to npm.');
-    };
-
-    if (parameters.publishToNpm) {
-      await publishToNpm();
     }
-
 
     /**
      * Publish to Github
      */
-    const publishToGithub = async () => {
+    if (parameters.publishToGithub) {
       console.log('Publishing to Github ...');
 
       // Update registry for Github
@@ -6363,11 +6360,8 @@ const pkg = __nccwpck_require__(594);
       console.log('stdout:', stdout);
       console.log('stderr:', stderr);
       if(!stderr) console.log('Published to Github.');
-    };
-
-    if (parameters.publishToGithub) {
-      await publishToGithub();
     }
+
   } catch (error) {
     core.setFailed(error.message);
   }
