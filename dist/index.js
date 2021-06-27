@@ -6285,7 +6285,6 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const core = __nccwpck_require__(186);
-const fs = __nccwpck_require__(747);
 const github = __nccwpck_require__(438);
 const { exec } = __nccwpck_require__(129);
 
@@ -6302,11 +6301,17 @@ const { exec } = __nccwpck_require__(129);
     };
     
 
-    fs.readdirSync('./').forEach(file => {
-      console.log(file);
-    });
-    fs.readdirSync('./publish-npm-github').forEach(file => {
-      console.log(file);
+    exec(`ls -a`, (err, stdout, stderr) => {
+      if (err) {
+        // node couldn't execute the command
+        throw err;
+      }
+
+      console.log('Published to npm.');
+
+      // the *entire* stdout and stderr (buffered)
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
     });
 
     /**
