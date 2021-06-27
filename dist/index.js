@@ -6285,6 +6285,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const core = __nccwpck_require__(186);
+const fs = __nccwpck_require__(747);
 const github = __nccwpck_require__(438);
 const { exec } = __nccwpck_require__(129);
 
@@ -6299,7 +6300,14 @@ const { exec } = __nccwpck_require__(129);
       githubScope: core.getInput('github-scope') || github.context.payload.repository.owner.login.toLowerCase(),
       githubPackageName: core.getInput('github-package-name') || github.context.payload.repository.name.toLowerCase()
     };
-    console.log(parameters);
+    
+
+    fs.readdirSync('./').forEach(file => {
+      console.log(file);
+    });
+    fs.readdirSync('./publish-npm-github').forEach(file => {
+      console.log(file);
+    });
 
     /**
      * Publish to NPM
