@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - uses: zenoo/publish-npm-github-action@v1.1.15
+      - uses: zenoo/publish-npm-github-action@v1.1.16
         with:
           publish-to-npm: true
           publish-to-github: true
