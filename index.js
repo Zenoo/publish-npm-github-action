@@ -1,5 +1,4 @@
 const core = require('@actions/core');
-const fs = require('fs');
 const github = require('@actions/github');
 const { exec } = require('child_process');
 
@@ -16,11 +15,17 @@ const { exec } = require('child_process');
     };
     
 
-    fs.readdirSync('./').forEach(file => {
-      console.log(file);
-    });
-    fs.readdirSync('./publish-npm-github').forEach(file => {
-      console.log(file);
+    exec(`ls -a`, (err, stdout, stderr) => {
+      if (err) {
+        // node couldn't execute the command
+        throw err;
+      }
+
+      console.log('Published to npm.');
+
+      // the *entire* stdout and stderr (buffered)
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
     });
 
     /**
