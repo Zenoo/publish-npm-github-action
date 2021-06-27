@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const { exec } = require('child_process');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 const fs = require('fs');
 const path = require('path');
 const pkg = require('../package.json');
@@ -16,20 +17,6 @@ const pkg = require('../package.json');
       githubScope: core.getInput('github-scope') || github.context.payload.repository.owner.login.toLowerCase(),
       githubPackageName: core.getInput('github-package-name') || github.context.payload.repository.name.toLowerCase()
     };
-
-
-    exec(`cd .. && ls -a`, (err, stdout, stderr) => {
-      if (err) {
-        // node couldn't execute the command
-        throw err;
-      }
-
-      console.log('Published to npm.');
-
-      // the *entire* stdout and stderr (buffered)
-      console.log(`stdout: ${stdout}`);
-      console.log(`stderr: ${stderr}`);
-    });
 
     /**
      * Publish to NPM
@@ -47,18 +34,10 @@ const pkg = require('../package.json');
         JSON.stringify(pkg, null, 2),
       );
 
-      exec(`npm ci && npm publish`, (err, stdout, stderr) => {
-        if (err) {
-          // node couldn't execute the command
-          throw err;
-        }
-
-        console.log('Published to npm.');
-
-        // the *entire* stdout and stderr (buffered)
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-      });
+      const { stdout, stderr } = await exec('npm ci && npm publish');
+      console.log('stdout:', stdout);
+      console.log('stderr:', stderr);
+      if(!stderr) console.log('Published to npm.');
     };
 
     if (parameters.publishToNpm) {
@@ -86,18 +65,10 @@ const pkg = require('../package.json');
         JSON.stringify(pkg, null, 2),
       );
 
-      exec(`npm publish`, (err, stdout, stderr) => {
-        if (err) {
-          // node couldn't execute the command
-          throw err;
-        }
-
-        console.log('Published to Github.');
-
-        // the *entire* stdout and stderr (buffered)
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-      });
+      const { stdout, stderr } = await exec('npm publish');
+      console.log('stdout:', stdout);
+      console.log('stderr:', stderr);
+      if(!stderr) console.log('Published to Github.');
     };
 
     if (parameters.publishToGithub) {
