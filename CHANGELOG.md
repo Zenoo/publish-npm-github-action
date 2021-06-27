@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.11](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.10...v1.1.11) (2021-06-27)
+
+
+### Bug Fixes
+
+* Use promise exec ([4b10279](https://github.com/Zenoo/publish-npm-github-action/commit/4b1027922252c48a04cf05348c00f33606959a5b))
+
 ### [1.1.10](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.9...v1.1.10) (2021-06-27)
 
 
