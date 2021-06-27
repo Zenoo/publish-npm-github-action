@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.3...v1.1.4) (2021-06-27)
+
+
+### Bug Fixes
+
+* Added publish methods ([606f580](https://github.com/Zenoo/publish-npm-github-action/commit/606f580344276983580e738d0f8987b34fd6066b))
+* top level await ([e93d770](https://github.com/Zenoo/publish-npm-github-action/commit/e93d7704cc192e5a880ff7786f1537f4c673cadb))
+
 ### [1.1.3](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.2...v1.1.3) (2021-06-27)
 
 
