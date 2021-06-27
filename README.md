@@ -14,7 +14,7 @@ Publish your package on NPM, Github or both, without much configuration.
 
 ## `github-scope`
 
-**Optional** Custom scope for the Github publication. Defaults to your username
+**Optional** Custom scope for the Github publication. Defaults to the repository owner
 
 ## `github-package-name`
 
@@ -41,7 +41,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: zenoo/publish-npm-github-action@v1.1.2
+      - uses: zenoo/publish-npm-github-action@v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -61,7 +61,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: zenoo/publish-npm-github-action@v1.1.2
+      - uses: zenoo/publish-npm-github-action@v1.1.4
         with:
           publish-to-npm: false
           github-scope: 'customscope'

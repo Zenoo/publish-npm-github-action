@@ -8,62 +8,59 @@ try {
    * Parameters
    */
   const parameters = {
-    publishToNpm: core.getInput('publish-to-npm'),
-    publishToGithub: core.getInput('publish-to-github'),
-    githubScope: core.getInput('github-scope'),
-    githubPackageName: core.getInput('github-package-name')
+    publishToNpm: core.getInput('publish-to-npm') === 'true',
+    publishToGithub: core.getInput('publish-to-github') === 'true',
+    githubScope: core.getInput('github-scope') || github.context.payload.repository.owner.login.toLowerCase(),
+    githubPackageName: core.getInput('github-package-name') || github.context.payload.repository.name.toLowerCase()
   };
-  core.debug(parameters);
+  console.log(parameters);
 
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  /**
+   * Publish to NPM
+   */
+  const publishToNpm = async () => {
+    console.log('Publishing to npm ...');
+    exec(`node /publish-npm-github/npm.js && npm ci && npm publish`, (err, stdout, stderr) => {
+      if (err) {
+        // node couldn't execute the command
+        throw err;
+      }
 
-  // /**
-  //  * Publish to NPM
-  //  */
-  // const publishToNpm = async () => {
-  //   core.debug('Publishing to npm ...');
-  //   exec('node /publish-npm-github/npm.js && npm ci && npm publish', (err, stdout, stderr) => {
-  //     if (err) {
-  //       // node couldn't execute the command
-  //       throw err;
-  //     }
+      console.log('Published to npm.');
 
-  //     core.debug('Published to npm.');
+      // the *entire* stdout and stderr (buffered)
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
+    });
+  };
 
-  //     // the *entire* stdout and stderr (buffered)
-  //     core.debug(`stdout: ${stdout}`);
-  //     core.debug(`stderr: ${stderr}`);
-  //   });
-  // };
-
-  // if (parameters.publishToNpm) {
-  //   await publishToNpm();
-  // }
+  if (parameters.publishToNpm) {
+    await publishToNpm();
+  }
 
 
-  // /**
-  //  * Publish to Github
-  //  */
-  // const publishToGithub = async () => {
-  //   core.debug('Publishing to Github ...');
-  //   exec('node /publish-npm-github/github.js && npm publish', (err, stdout, stderr) => {
-  //     if (err) {
-  //       // node couldn't execute the command
-  //       throw err;
-  //     }
+  /**
+   * Publish to Github
+   */
+  const publishToGithub = async () => {
+    console.log('Publishing to Github ...');
+    exec(`node /publish-npm-github/github.js ${parameters.githubScope} ${parameters.githubPackageName} && npm publish`, (err, stdout, stderr) => {
+      if (err) {
+        // node couldn't execute the command
+        throw err;
+      }
 
-  //     core.debug('Published to Github.');
+      console.log('Published to Github.');
 
-  //     // the *entire* stdout and stderr (buffered)
-  //     core.debug(`stdout: ${stdout}`);
-  //     core.debug(`stderr: ${stderr}`);
-  //   });
-  // };
+      // the *entire* stdout and stderr (buffered)
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
+    });
+  };
 
-  // if (parameters.publishToGithub) {
-  //   await publishToGithub();
-  // }
+  if (parameters.publishToGithub) {
+    await publishToGithub();
+  }
 } catch (error) {
   core.setFailed(error.message);
 }

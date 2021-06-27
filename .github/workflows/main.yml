@@ -9,9 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: zenoo/publish-npm-github-action@v1.1.2
+      - uses: zenoo/publish-npm-github-action@v1.1.4
         with:
-          publish-to-npm: false
           github-scope: 'customscope'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

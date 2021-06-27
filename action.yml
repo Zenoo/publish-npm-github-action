@@ -11,7 +11,7 @@ inputs:
     required: false
     default: true
   github-scope:
-    description: 'Custom scope for the Github publication. Defaults to your username'
+    description: 'Custom scope for the Github publication. Defaults to the repository owner'
     required: false
   github-package-name:
     description: 'Custom package name for the Github publication. Defaults to your repository name'
