@@ -41,7 +41,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/publish-npm-github-action@latest
+      - uses: zenoo/publish-npm-github-action@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -61,7 +61,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/publish-npm-github-action@latest
+      - uses: zenoo/publish-npm-github-action@latest
         with:
           publish-to-npm: false
           github-scope: 'customscope'
