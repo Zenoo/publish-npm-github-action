@@ -6312,6 +6312,8 @@ const pkg = __nccwpck_require__(594);
       githubPackageName: core.getInput('github-package-name') || github.context.payload.repository.name.toLowerCase()
     };
 
+    console.log(core.getInput('publish-to-npm'));
+    console.log(core.getInput('publish-to-github'));
     console.log(parameters);
 
     /**
