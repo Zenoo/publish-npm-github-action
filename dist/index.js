@@ -6315,6 +6315,7 @@ const pkg = __nccwpck_require__(594);
     console.log(core.getInput('publish-to-npm'));
     console.log(core.getInput('publish-to-github'));
     console.log(parameters);
+    console.log(process.env);
 
     /**
      * Publish to NPM
