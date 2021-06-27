@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.14](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.13...v1.1.14) (2021-06-27)
+
+
+### Bug Fixes
+
+* Simplify index ([f8dc153](https://github.com/Zenoo/publish-npm-github-action/commit/f8dc153207c42cc9ad4ab8b4935a2ffd505d282e))
+
 ### [1.1.13](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.12...v1.1.13) (2021-06-27)
 
 
