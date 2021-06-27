@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.10](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.9...v1.1.10) (2021-06-27)
+
+
+### Bug Fixes
+
+* Centralize all js in index ([57151b4](https://github.com/Zenoo/publish-npm-github-action/commit/57151b462909c5767eb36b2318f45e4be8c4538c))
+
 ### [1.1.9](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.8...v1.1.9) (2021-06-27)
 
 ### [1.1.8](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.7...v1.1.8) (2021-06-27)
