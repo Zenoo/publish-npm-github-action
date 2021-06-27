@@ -1,4 +1,5 @@
 const core = require('@actions/core');
+const fs = require('fs');
 const github = require('@actions/github');
 const { exec } = require('child_process');
 
@@ -13,7 +14,14 @@ const { exec } = require('child_process');
       githubScope: core.getInput('github-scope') || github.context.payload.repository.owner.login.toLowerCase(),
       githubPackageName: core.getInput('github-package-name') || github.context.payload.repository.name.toLowerCase()
     };
-    console.log(parameters);
+    
+
+    fs.readdirSync('./').forEach(file => {
+      console.log(file);
+    });
+    fs.readdirSync('./publish-npm-github').forEach(file => {
+      console.log(file);
+    });
 
     /**
      * Publish to NPM
