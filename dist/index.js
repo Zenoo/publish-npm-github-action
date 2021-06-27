@@ -6328,7 +6328,7 @@ const pkg = __nccwpck_require__(594);
         JSON.stringify(pkg, null, 2),
       );
 
-      const { stdout, stderr } = await exec('npm ci && npm publish');
+      const { stdout, stderr } = await exec('npm ci && npm publish --access public');
       console.log('stdout:', stdout);
       console.log('stderr:', stderr);
       if(!stderr) console.log('Published to npm.');
@@ -6359,7 +6359,7 @@ const pkg = __nccwpck_require__(594);
         JSON.stringify(pkg, null, 2),
       );
 
-      const { stdout, stderr } = await exec('npm publish');
+      const { stdout, stderr } = await exec('npm publish --access public');
       console.log('stdout:', stdout);
       console.log('stderr:', stderr);
       if(!stderr) console.log('Published to Github.');
