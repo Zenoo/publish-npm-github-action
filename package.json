@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "package-index": "ncc build index.js && mv dist/index.js dist/index-temp.js",
-    "package-npm": "ncc build npm.js && mv dist/index.js dist/npm.js",
-    "package-github": "ncc build github.js && mv dist/index.js dist/github.js && mv dist/index-temp.js dist/index.js",
+    "package": "ncc build index.js",
     "commit-package": "git add dist/* && git commit -m \"chore: Packaging\" || true",
-    "release": "npm run package-index && npm run package-npm && npm run package-github && npm run commit-package && standard-version",
+    "release": "npm run package && npm run commit-package && standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
