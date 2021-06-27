@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.15](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.14...v1.1.15) (2021-06-27)
+
+
+### Bug Fixes
+
+* default parameters not working ([69b5e27](https://github.com/Zenoo/publish-npm-github-action/commit/69b5e2716fae71ef007138706dd43d2cffe1ebb6))
+
 ### [1.1.14](https://github.com/Zenoo/publish-npm-github-action/compare/v1.1.13...v1.1.14) (2021-06-27)
 
 
